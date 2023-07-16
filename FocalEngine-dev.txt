@@ -1,0 +1,23 @@
+FocalEngine-dev çalışmaları:
+
+1. GLFW Documentation'nu oku ve ona göre window classını yeniden yaz. (Yapıldı)
+2. NixEngine'nin Manager sistemi yerine neler kullanılabilir onlara bak.
+3. Paralellism ve concurrency öğren ve Inputlar için özel bir thread oluştur.
+4. Materyal sistemini PBR sistemi ile değiştir.
+5. Yazılmış olan NixSoundPlayer'ı FocalEngine-dev'e ekle.
+6. FocalEngine-dev'i genel manada veri yapılarını ve algoritmalarını optimize hale getir.
+
+FocalEngine-dev Window Sistemi:
+	- Bu sistemde sadece 1 tane window bulunacak.
+	- GlfwHintsleri direk olarak window sistemin içinde bulunacak.
+		// Sonradan glfwHintsleri window'a lambda fonksiyonlarıyla kullanıcı tarafından yüklenecek.
+	- Window bölümü sadece Uygulamanın Ekran görüntüsüyle ilgilenecek Inputlar InputManager üzerinden çalışacak.
+	- Window'un kendi kamerası bulunmayacak kameralar scene'lere ait.
+	- ShaderManager'dan currentWindowWidth ve currentWindowHeight çekmemize gerek yok çünkü bu veriler glfwgetFramebuffersize
+	
+FocalEngine-dev InputManager Sistemi:
+	- InputManager tıklanan bütün tuşları yönetecek.
+	- Aynı zamanda Mouse hareketini de yönetecek.
+	
+Yapılacaklar Listesi:
+	- Texture Classında TexParametreleri değiştirilebilecek bir sistem yap.

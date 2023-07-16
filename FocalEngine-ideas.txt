@@ -1,0 +1,27 @@
+//Input hangi objelerde çalışır?
+	- Kamera
+	- Karakter
+	- Arayüz
+//Peki nasıl olurda kamera karakter arayüz gibi objeler için inputları sağlayabiliriz.
+
+Mesela Kamera için gereken inputlar WASD ve Mouse hareketleridir.
+Arayüz için ise aynı zamanda mouse hareketleri gerekir. Bazen klavyeden girilen veriler de önemlidir.
+
+//Peki nasıl olurda Hem karaktere hem de arayüze mouse verilerini gönderip birbirleriyle çakışmasını önleyebiliriz?
+
+Bizim bir inputManager sistemimiz var. Bu sistem glfw'dan aldığı fonksiyonla glfw'dan bütün basılmış keyleri toplayabiliyor.
+
+1. Yapılabilecek olan şey:
+	Belki inputManager sisteminin yanına Input classı yaratırız. Bu yaratılan input classlarını inputManager'da toplarız.
+	Kamera Arayüz ve Karakter gibi classlarda bu input classını inheritler ve içine gereken bütün keyler yazıldığında neler yapılacağını gösterir.
+	Sonra bu inputlar inputManager'ın içine konulur ve oradan ne zaman glfw fonksiyonuna çağrı geldiğinde inputManager bulunan bütün inputları çekerek inputları gösterebilir.
+	
+//Peki nasıl inputları çektiğimizde gereken işlemleri nasıl yapacağız?
+	input classının içerisine bir isWorking boolean'ı ekleriz. Bu boolean ile input classı çalışıyor mu çalışmıyor mu diye geri dönüş sağlayabiliriz.
+	Böylelikle ne zaman inputManager bir tuşa basıldığını gördüğünde o zaman sadece gereken inputu çalıştırmasını sağlayabilir.
+	
+//Peki bu objenin inputunu ne zaman çalıştırmasını sağlayabiliriz?
+	inputManager bir update fonkisyonuyla bu inputların çalışmasını sağlayabilir.
+
+//Peki nasıl olurda Hem kameraya hem de arayüze mouse inputlarının çakışmamasını sağlayacağız?
+	Bunun için inputların içine bir if koşulu oluşturabiliriz bunun için illaki inputManager'dan değer almamıza gerek kalmaz.
