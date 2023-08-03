@@ -3,13 +3,14 @@
 #include "shader.h"
 #include "mesh.h"
 #include "texture.h"
+#include "model.h"
 #include "game/gui.h"
 
 /* Singletons */
 Window* Window::s_instance = nullptr;
 InputManager* InputManager::s_instance = nullptr;
 
-int main()	
+int main()
 {
 	/* Initialization of Engine Here */
 	if (!glfwInit()) return -1;
@@ -35,6 +36,8 @@ int main()
 
 	Mesh testMesh(test_vertices, test_indices);
 
+	Model testModel("testModel", "/res/model/dragon.obj");
+	
 	Texture testTexture("/res/texture/error.png");
 	testTexture.LoadTexture();
 
@@ -42,9 +45,7 @@ int main()
 	while (mainWindow->renderLoop())
 	{
 		testShader.Bind();
-		testTexture.Bind();
-		testMesh.RenderMesh();
-		testTexture.Unbind();
+		testModel.RenderModel();
 		testShader.Unbind();
 	}
 
