@@ -69,8 +69,9 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;assimp-vc143-mt.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /y /d  "$(SolutionDir)lib\assimp-vc143-mt.dll" "$(SolutionDir)out\$(Configuration)"
+mkdir "$(SolutionDir)out\$(Configuration)\res"
+xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -92,8 +93,9 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glfw3_mt.lib;glfw3dll.lib;assimp-vc143-mt.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /y /d  "$(SolutionDir)lib\assimp-vc143-mt.dll" "$(SolutionDir)out\$(Configuration)"
+mkdir "$(SolutionDir)out\$(Configuration)\res"
+xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
