@@ -1,6 +1,6 @@
 #include "window.h"
 #include "inputManager.h"
-#include "shader.h"
+#include "shaderManager.h"
 #include "mesh.h"
 #include "texture.h"
 #include "model.h"
@@ -9,6 +9,7 @@
 /* Singletons */
 Window* Window::s_instance = nullptr;
 InputManager* InputManager::s_instance = nullptr;
+ShaderManager* ShaderManager::s_instance = nullptr;
 
 int main()
 {
@@ -19,6 +20,12 @@ int main()
 	Window::createInstance("mainWindow", 800, 600, false);
 	InputManager::createInstance();
 	Window* mainWindow = Window::getInstance();
+
+	ShaderManager::createInstance();
+	ShaderManager* shaderManager = ShaderManager::getInstance();
+
+	shaderManager->addShader("Test", "/res/shader/basic.frag", "/res/shader/basic.vert");
+	Shader* shaderManagerTest = shaderManager->getShader("Test");
 
 	/* Game Related Code Here */
 	GUI gui("Default");
@@ -40,15 +47,16 @@ int main()
 	
 	Texture testTexture("/res/texture/error.png");
 	testTexture.LoadTexture();
+	testTexture.Bind();
 
 	/* Render Loop */
 	while (mainWindow->renderLoop())
 	{
-		testShader.Bind();
-		testModel.RenderModel();
-		testShader.Unbind();
+		shaderManagerTest->Bind();
+		testMesh.RenderMesh();
+		shaderManagerTest->Unbind();
 	}
-
+	testTexture.Unbind();
 	glfwTerminate();
 	return 0;
 }
