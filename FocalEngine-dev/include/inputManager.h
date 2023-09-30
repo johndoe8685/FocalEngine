@@ -7,13 +7,15 @@
 class InputManager : public NixTools::System
 {
 private:
+	//Singleton Constructor and  pointer
+	InputManager();
 	static InputManager* s_instance;
+	
 	GLFWwindow* m_mainWindow;
 
 	std::vector<Input*> m_Inputs;
-
-	InputManager();
 public:
+	//Singleton creation
 	static void createInstance();
 	static InputManager* getInstance();
 

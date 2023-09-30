@@ -7,12 +7,14 @@
 class ShaderManager : public NixTools::System
 {
 private:
-	static ShaderManager* s_instance;
+	//Singleton Constructor and  pointer
 	ShaderManager();
+	static ShaderManager* s_instance;
 
 	std::unordered_map<std::string, std::shared_ptr<Shader>> m_shaderMap;
 	Shader* find(std::string componentName, std::unordered_map<std::string, std::shared_ptr<Shader>> map);
 public:
+	//Singleton creation
 	static void createInstance();
 	static ShaderManager* getInstance();
 

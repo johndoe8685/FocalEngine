@@ -1,6 +1,7 @@
 #include "window.h"
 #include "inputManager.h"
 #include "shaderManager.h"
+#include "assetManager.h"
 #include "mesh.h"
 #include "texture.h"
 #include "model.h"
@@ -10,6 +11,7 @@
 Window* Window::s_instance = nullptr;
 InputManager* InputManager::s_instance = nullptr;
 ShaderManager* ShaderManager::s_instance = nullptr;
+AssetManager* AssetManager::s_instance = nullptr;
 
 int main()
 {
@@ -17,12 +19,16 @@ int main()
 	if (!glfwInit()) return -1;
 
 	/* Engine Related Code Here */
+	
 	Window::createInstance("mainWindow", 800, 600, false);
 	InputManager::createInstance();
-	Window* mainWindow = Window::getInstance();
-
 	ShaderManager::createInstance();
+	AssetManager::createInstance();
+
+	Window* mainWindow = Window::getInstance();
 	ShaderManager* shaderManager = ShaderManager::getInstance();
+	AssetManager* assetManager = AssetManager::getInstance();
+
 
 	shaderManager->addShader("Test", "/res/shader/basic.frag", "/res/shader/basic.vert");
 	Shader* shaderManagerTest = shaderManager->getShader("Test");
@@ -43,8 +49,9 @@ int main()
 
 	Mesh testMesh(test_vertices, test_indices);
 
-	Model testModel("testModel", "/res/model/dragon.obj");
-	
+	assetManager->addModel("testModel", "/res/model/dragon.obj");
+	Model* testModel = assetManager->getModel("testModel");
+
 	Texture testTexture("/res/texture/error.png");
 	testTexture.LoadTexture();
 	testTexture.Bind();
@@ -53,7 +60,8 @@ int main()
 	while (mainWindow->renderLoop())
 	{
 		shaderManagerTest->Bind();
-		testMesh.RenderMesh();
+		testModel->RenderModel();
+		//testMesh.RenderMesh();
 		shaderManagerTest->Unbind();
 	}
 	testTexture.Unbind();

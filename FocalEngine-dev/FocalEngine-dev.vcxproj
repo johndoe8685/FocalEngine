@@ -70,8 +70,7 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d  "$(SolutionDir)lib\assimp-vc143-mt.dll" "$(SolutionDir)out\$(Configuration)"
-mkdir "$(SolutionDir)out\$(Configuration)\res"
-xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Command>
+xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -94,18 +93,19 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Comman
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d  "$(SolutionDir)lib\assimp-vc143-mt.dll" "$(SolutionDir)out\$(Configuration)"
-mkdir "$(SolutionDir)out\$(Configuration)\res"
-xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Command>
+xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\vendor\glm\detail\glm.cpp" />
+    <ClCompile Include="src\assetManager.cpp" />
     <ClCompile Include="src\game\gui.cpp" />
     <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
     <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\shaderManager.cpp" />
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\vendor\glad.c" />
     <ClCompile Include="src\vendor\stb_image.cpp" />
@@ -117,12 +117,14 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e</Comman
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\assetManager.h" />
     <ClInclude Include="include\game\gui.h" />
     <ClInclude Include="include\input.h" />
     <ClInclude Include="include\inputManager.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\model.h" />
     <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\shaderManager.h" />
     <ClInclude Include="include\vendor\assimp\aabb.h" />
     <ClInclude Include="include\vendor\assimp\ai_assert.h" />
     <ClInclude Include="include\vendor\assimp\anim.h" />
