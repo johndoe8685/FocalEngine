@@ -104,6 +104,7 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\scene.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\shaderManager.cpp" />
     <ClCompile Include="src\texture.cpp" />
@@ -123,6 +124,7 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClInclude Include="include\inputManager.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\model.h" />
+    <ClInclude Include="include\scene.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\shaderManager.h" />
     <ClInclude Include="include\vendor\assimp\aabb.h" />
