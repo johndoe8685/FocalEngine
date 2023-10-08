@@ -29,15 +29,12 @@ void Scene::addModel(std::string modelName, glm::vec3 position, glm::vec3 rotati
 
 void Scene::setModel(std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
 {
-	ModelData data;
-	data.modelName = modelName;
-	data.position = position;
-	data.rotation = rotation;
-	data.scale = scale;
-	m_models.emplace_back(data);
+	m_models[m_modelIndexMap[modelName]].position = position;
+	m_models[m_modelIndexMap[modelName]].rotation = rotation;
+	m_models[m_modelIndexMap[modelName]].scale = scale;
 }
 
-void Scene::setMVP(size_t index)
+void Scene::setMVP(size_t index, Shader* shader)
 {
 	glm::mat4 mvp(1.0f);
 	ModelData data = m_models[index];
@@ -49,18 +46,20 @@ void Scene::setMVP(size_t index)
 
 	//TODO: Store model transformations that is not changing into an array
 	//TODO: Move Setting Uniform into renderScene() function;
-	ShaderManager* shaderManager = ShaderManager::getInstance();
-	Shader* mainShader = shaderManager->getShader("MainShader");
-	mainShader->SetUniformMatrix4fv("mvp", mvp);
+	shader->SetUniformMatrix4fv("mvp", mvp);
 }
 
 void Scene::renderScene()
 {
 	AssetManager* assetManager = AssetManager::getInstance();
+	ShaderManager* shaderManager = ShaderManager::getInstance();
+	Shader* mainShader = shaderManager->getShader("MainShader");
 	for (size_t i = 0; i < m_models.size(); i++)
 	{
-		setMVP(i);
+		setMVP(i, mainShader);
+		mainShader->Bind();
 		Model* modelData = assetManager->getModel(m_models[i].modelName);
 		modelData->RenderModel();
+		mainShader->Unbind();
 	}	
 }

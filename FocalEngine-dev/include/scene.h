@@ -4,6 +4,8 @@
 #include <vector>
 #include <unordered_map>
 
+class Shader;
+
 class Scene : public NixTools::System
 {
 	struct ModelData
@@ -29,5 +31,5 @@ public:
 
 	void renderScene();
 private:
-	void setMVP(size_t index);
+	void setMVP(size_t index, Shader* shader);
 };

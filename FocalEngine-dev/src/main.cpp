@@ -33,43 +33,45 @@ int main()
 
 	/* Game Related Code Here */
 	GUI gui("Default");
-	
-	std::vector<Vertex> test_vertices;
-	test_vertices.push_back( { glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec2(0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f) } );
-	test_vertices.push_back({ glm::vec3(1.0f, -1.0f, 0.0f), glm::vec2(1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f) });
-	test_vertices.push_back({ glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(0.5f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f) });
-
-	std::vector<unsigned int> test_indices;
-	test_indices.push_back(0);
-	test_indices.push_back(1);
-	test_indices.push_back(2);
-
-	Mesh testMesh(test_vertices, test_indices);
 
 	assetManager->addModel("testModel", "/res/model/dragon.obj");
 	Model* testModel = assetManager->getModel("testModel");
-
+	
 	Scene testScene("Test");
-	testScene.addModel("testModel", glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 90.0f), glm::vec3(0.5f, 0.5f, 0.5f));
+	testScene.addModel("testModel", glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f));
 
-	Texture testTexture("/res/texture/error.png");
-	testTexture.LoadTexture();
-	testTexture.Bind();
-
+	//Animation variables
 	float x = 0;
+	float speed = 0.005f;
+	float distance = 4.0f;
+	bool isRight = true;
 
 	/* Render Loop */
 	while (mainWindow->renderLoop())
 	{
-		shaderTest->Bind();
 		testScene.renderScene();
-		//testModel->RenderModel();
-		//testMesh.RenderMesh();
-		shaderTest->Unbind();
 
-		//testScene.setModel("testModel", glm::vec3(0.0f, x, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		//Move model between 4.0f and -4.0f
+		if (x > distance)
+		{
+			isRight = false;
+		}
+		else if (x < -distance)
+		{
+			isRight = true;
+		}
+
+		if (isRight)
+		{
+			x += speed;
+		}
+		else
+		{
+			x -= speed;
+		}
+
+		testScene.setModel("testModel", glm::vec3(0.0f, 0.0f, x), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	testTexture.Unbind();
 	glfwTerminate();
 	return 0;
 }
