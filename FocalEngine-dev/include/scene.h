@@ -25,6 +25,9 @@ public:
 	void addModel(std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
 
 	void setModel(std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
+	void setModelPosition(std::string modelName, glm::vec3 position);
+	void setModelRotation(std::string modelName, glm::vec3 rotation);
+	void setModelScale(std::string modelName, glm::vec3 scale);
 
 	//TODO: Add individual model transformations
 	//TODO: Add incremental changes for model transformations

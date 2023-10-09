@@ -34,6 +34,21 @@ void Scene::setModel(std::string modelName, glm::vec3 position, glm::vec3 rotati
 	m_models[m_modelIndexMap[modelName]].scale = scale;
 }
 
+void Scene::setModelPosition(std::string modelName, glm::vec3 position)
+{
+	m_models[m_modelIndexMap[modelName]].position = position;
+}
+
+void Scene::setModelRotation(std::string modelName, glm::vec3 rotation)
+{
+	m_models[m_modelIndexMap[modelName]].rotation = rotation;
+}
+
+void Scene::setModelScale(std::string modelName, glm::vec3 scale)
+{
+	m_models[m_modelIndexMap[modelName]].scale = scale;
+}
+
 void Scene::setMVP(size_t index, Shader* shader)
 {
 	glm::mat4 mvp(1.0f);
@@ -43,10 +58,16 @@ void Scene::setMVP(size_t index, Shader* shader)
 	mvp = glm::rotate(mvp, data.rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
 	mvp = glm::rotate(mvp, data.rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
 	mvp = glm::rotate(mvp, data.rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+	shader->SetUniformMatrix4fv("model", mvp);
+
+	glm::mat4 projection(1.0f);
+	projection = glm::perspective(glm::radians(90.0f), (800.0f / 600.0f), 0.1f, 1000.0f);
+	shader->SetUniformMatrix4fv("projection", projection);
+
 
 	//TODO: Store model transformations that is not changing into an array
 	//TODO: Move Setting Uniform into renderScene() function;
-	shader->SetUniformMatrix4fv("mvp", mvp);
+	
 }
 
 void Scene::renderScene()

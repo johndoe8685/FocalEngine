@@ -38,39 +38,27 @@ int main()
 	Model* testModel = assetManager->getModel("testModel");
 	
 	Scene testScene("Test");
-	testScene.addModel("testModel", glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f));
+	testScene.addModel("testModel", glm::vec3(0.0f, 0.0f, -2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.25f, 0.25f, 0.25f));
 
-	//Animation variables
-	float x = 0;
-	float speed = 0.005f;
-	float distance = 4.0f;
-	bool isRight = true;
+	//Variables
+	float curAngle = 0.0f;
+	float speed = 0.0f;
+	float toRadians = 3.14159265358979323846f / 180.f;
 
 	/* Render Loop */
 	while (mainWindow->renderLoop())
 	{
 		testScene.renderScene();
 
-		//Move model between 4.0f and -4.0f
-		if (x > distance)
+		//Rotate the dragon
+		speed = 80.0f * toRadians * mainWindow->getDeltaTime();
+		curAngle += speed;
+		if (curAngle >= 360)
 		{
-			isRight = false;
-		}
-		else if (x < -distance)
-		{
-			isRight = true;
+			curAngle -= 360;
 		}
 
-		if (isRight)
-		{
-			x += speed;
-		}
-		else
-		{
-			x -= speed;
-		}
-
-		testScene.setModel("testModel", glm::vec3(0.0f, 0.0f, x), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f));
+		testScene.setModelRotation("testModel", glm::vec3(0.0f, curAngle, 0.0f));
 	}
 	glfwTerminate();
 	return 0;

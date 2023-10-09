@@ -29,5 +29,7 @@ public:
 	void setWindowSize(int width, int height);
 	void getWindowSize(int* width, int* height);
 
+	float getDeltaTime();
+
 	GLFWwindow* getGLFWwindow();
 };

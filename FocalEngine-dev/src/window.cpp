@@ -107,6 +107,11 @@ void Window::getWindowSize(int* width, int* height)
 	glfwGetWindowSize(m_glfwWindow, width, height);
 }
 
+float Window::getDeltaTime()
+{
+	return s_DeltaTime;
+}
+
 GLFWwindow* Window::getGLFWwindow()
 {
 	return m_glfwWindow;
