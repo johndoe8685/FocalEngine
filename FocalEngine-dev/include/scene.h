@@ -14,6 +14,7 @@ class Scene : public NixTools::System
 		glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
+		glm::mat4 transformation;
 	};
 private:
 	std::vector<ModelData> m_models;
@@ -29,10 +30,10 @@ public:
 	void setModelRotation(std::string modelName, glm::vec3 rotation);
 	void setModelScale(std::string modelName, glm::vec3 scale);
 
-	//TODO: Add individual model transformations
 	//TODO: Add incremental changes for model transformations
 
 	void renderScene();
 private:
-	void setMVP(size_t index, Shader* shader);
+	glm::mat4 setModelTransformation(ModelData previousData);
+	void setMVP(glm::mat4 transformation, Shader* shader);
 };

@@ -29,7 +29,6 @@ int main()
 	AssetManager* assetManager = AssetManager::getInstance();
 
 	shaderManager->addShader("MainShader", "/res/shader/basic.frag", "/res/shader/basic.vert");
-	Shader* shaderTest = shaderManager->getShader("MainShader");
 
 	/* Game Related Code Here */
 	GUI gui("Default");
