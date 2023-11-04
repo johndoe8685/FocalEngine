@@ -4,11 +4,11 @@
 #include "assetManager.h"
 
 Scene::Scene(std::string componentName)
-	:System(componentName, "Scene")
+	:System(componentName, "Scene"), m_mainCamera("MainCamera", glm::vec3(0.0f), glm::vec2(-90.0f, 0.0f))
 {
 }
 
-void Scene::addModel(std::string modelName)
+void Scene::addModel(std::string componentName,  std::string modelName)
 {
 	ModelData data;
 	data.modelName = modelName;
@@ -16,51 +16,58 @@ void Scene::addModel(std::string modelName)
 	m_modelIndexMap[modelName] = m_models.size() - 1;
 }
 
-void Scene::addModel(std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
+void Scene::addModel(std::string componentName, std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
 {
 	ModelData data;
+	data.componentName = componentName;
 	data.modelName = modelName;
 	data.position = position;
 	data.rotation = rotation;
 	data.scale = scale;
 	data.transformation = setModelTransformation(data);
 	m_models.emplace_back(data);
-	m_modelIndexMap[modelName] = m_models.size() - 1;
+	m_modelIndexMap[componentName] = m_models.size() - 1;
 }
 
-void Scene::setModel(std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
+void Scene::setModel(std::string componentName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
 {
-	m_models[m_modelIndexMap[modelName]].position = position;
-	m_models[m_modelIndexMap[modelName]].rotation = rotation;
-	m_models[m_modelIndexMap[modelName]].scale = scale;
-	m_models[m_modelIndexMap[modelName]].transformation = setModelTransformation(m_models[m_modelIndexMap[modelName]]);
+	m_models[m_modelIndexMap[componentName]].position = position;
+	m_models[m_modelIndexMap[componentName]].rotation = rotation;
+	m_models[m_modelIndexMap[componentName]].scale = scale;
+	m_models[m_modelIndexMap[componentName]].transformation = setModelTransformation(m_models[m_modelIndexMap[componentName]]);
 }
 
-void Scene::setModelPosition(std::string modelName, glm::vec3 position)
+void Scene::setModelPosition(std::string componentName, glm::vec3 position)
 {
-	m_models[m_modelIndexMap[modelName]].position = position;
-	m_models[m_modelIndexMap[modelName]].transformation = setModelTransformation(m_models[m_modelIndexMap[modelName]]);
+	m_models[m_modelIndexMap[componentName]].position = position;
+	m_models[m_modelIndexMap[componentName]].transformation = setModelTransformation(m_models[m_modelIndexMap[componentName]]);
 }
 
-void Scene::setModelRotation(std::string modelName, glm::vec3 rotation)
+void Scene::setModelRotation(std::string componentName, glm::vec3 rotation)
 {
-	m_models[m_modelIndexMap[modelName]].rotation = rotation;
-	m_models[m_modelIndexMap[modelName]].transformation = setModelTransformation(m_models[m_modelIndexMap[modelName]]);
+	m_models[m_modelIndexMap[componentName]].rotation = rotation;
+	m_models[m_modelIndexMap[componentName]].transformation = setModelTransformation(m_models[m_modelIndexMap[componentName]]);
 }
 
-void Scene::setModelScale(std::string modelName, glm::vec3 scale)
+void Scene::setModelScale(std::string componentName, glm::vec3 scale)
 {
-	m_models[m_modelIndexMap[modelName]].scale = scale;
-	m_models[m_modelIndexMap[modelName]].transformation = setModelTransformation(m_models[m_modelIndexMap[modelName]]);
+	m_models[m_modelIndexMap[componentName]].scale = scale;
+	m_models[m_modelIndexMap[componentName]].transformation = setModelTransformation(m_models[m_modelIndexMap[componentName]]);
 }
 
 void Scene::setMVP(glm::mat4 transformation, Shader* shader)
 {
 	glm::mat4 mvp;
 	glm::mat4 projection(1.0f);
+	ShaderManager* shaderManager = ShaderManager::getInstance();
+	int width, height;
+	shaderManager->getWindowSize(&width, &height);
 
-	projection = glm::perspective(glm::radians(90.0f), (800.0f / 600.0f), 0.1f, 1000.0f);
-	mvp = projection * transformation;
+	if(width != 0 && height != 0) projection = glm::perspective(glm::radians(90.0f), ((float)width / (float)height), 0.1f, 1000.0f);
+
+	glm::mat4 view = m_mainCamera.calculateViewMatrix();
+
+	mvp = projection * view * transformation;
 
 	shader->SetUniformMatrix4fv("mvp", mvp);
 }
@@ -82,6 +89,8 @@ void Scene::renderScene()
 	AssetManager* assetManager = AssetManager::getInstance();
 	ShaderManager* shaderManager = ShaderManager::getInstance();
 	Shader* mainShader = shaderManager->getShader("MainShader");
+
+	m_mainCamera.update();
 
 	for (size_t i = 0; i < m_models.size(); i++)
 	{

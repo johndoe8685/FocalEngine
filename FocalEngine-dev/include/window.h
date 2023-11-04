@@ -3,9 +3,7 @@
 #include <vendor/NixTools/system.h>
 #include <vendor/glad/glad.h>
 #include <vendor/GLFW/glfw3.h>
-
-/* Singletons */
-static float s_DeltaTime = 0.0f;
+#include "global.h"
 
 class Window : public NixTools::System
 {

@@ -99,6 +99,7 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
   <ItemGroup>
     <ClCompile Include="include\vendor\glm\detail\glm.cpp" />
     <ClCompile Include="src\assetManager.cpp" />
+    <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\game\gui.cpp" />
     <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -119,8 +120,9 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\assetManager.h" />
+    <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\game\gui.h" />
-    <ClInclude Include="include\input.h" />
+    <ClInclude Include="include\global.h" />
     <ClInclude Include="include\inputManager.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\model.h" />
@@ -504,6 +506,8 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClInclude Include="include\vendor\stb\stb_image.h" />
     <ClInclude Include="include\texture.h" />
     <ClInclude Include="include\window.h" />
+    <ClInclude Include="include\keyboardinput.h" />
+    <ClInclude Include="include\mouseinput.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\vendor\assimp\color4.inl" />

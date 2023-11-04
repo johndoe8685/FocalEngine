@@ -22,8 +22,8 @@ Window::Window(std::string componentName, int width, int height, bool isFullscre
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/* Window Creation */
-	if (isFullscreen) m_glfwWindow = glfwCreateWindow(width, height, "FocalEngine-dev", glfwGetPrimaryMonitor(), NULL);
-	else m_glfwWindow = glfwCreateWindow(width, height, "FocalEngine-dev", NULL, NULL);
+	if (isFullscreen) m_glfwWindow = glfwCreateWindow(width, height, "NixEngine", glfwGetPrimaryMonitor(), NULL);
+	else m_glfwWindow = glfwCreateWindow(width, height, "NixEngine", NULL, NULL);
 
 	if (!m_glfwWindow)
 	{
@@ -39,7 +39,8 @@ Window::Window(std::string componentName, int width, int height, bool isFullscre
 		gladLoadGL();
 
 		/* OpenGL Spesific Code Here */
-
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_CULL_FACE);
 
 		//Clear the screen with pink Error color
 		glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
@@ -91,7 +92,7 @@ bool Window::renderLoop()
 
 	/* Get Delta Time */
 	m_curFrame = glfwGetTime();
-	s_DeltaTime = m_curFrame - m_lastFrame;
+	GS_DELTATIME = m_curFrame - m_lastFrame;
 	m_lastFrame = m_curFrame;
 	
 	return !glfwWindowShouldClose(m_glfwWindow);
@@ -109,7 +110,7 @@ void Window::getWindowSize(int* width, int* height)
 
 float Window::getDeltaTime()
 {
-	return s_DeltaTime;
+	return GS_DELTATIME;
 }
 
 GLFWwindow* Window::getGLFWwindow()

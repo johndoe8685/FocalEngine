@@ -3,11 +3,11 @@
 GUI::GUI(std::string componentName)
 	:System(componentName, "GUI")
 {
-	Input* input = static_cast<Input*>(this);
-	InputManager::getInstance()->addInput(input);
+	KeyboardInput* keyboardInput = static_cast<KeyboardInput*>(this);
+	InputManager::getInstance()->addInput(keyboardInput);
 }
 
-void GUI::events(GLFWwindow* window, int key, int scancode, int action, int mods)
+void GUI::keyboardEvents(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	if (key == GLFW_KEY_ESCAPE) glfwSetWindowShouldClose(window, true);
 }

@@ -1,15 +1,17 @@
 #include <shaderManager.h>
+#include "window.h"
 
-ShaderManager::ShaderManager()
-	:System("Default", "ShaderManager")
+ShaderManager::ShaderManager(Window* window)
+	:System("Default", "ShaderManager"), m_deltaTime(0.0f)
 {
+	setCurrentWindow(window);
 }
 
-void ShaderManager::createInstance()
+void ShaderManager::createInstance(Window* window)
 {
 	if (s_instance == nullptr)
 	{
-		s_instance = new ShaderManager();
+		s_instance = new ShaderManager(window);
 	}
 	else
 	{
@@ -30,6 +32,11 @@ ShaderManager* ShaderManager::getInstance()
 	}
 }
 
+void ShaderManager::setCurrentWindow(Window* window)
+{
+	m_curWindow = window;
+}
+
 Shader* ShaderManager::find(std::string componentName, std::unordered_map<std::string, std::shared_ptr<Shader>> map)
 {
 	return map[componentName].get();
@@ -45,4 +52,9 @@ Shader* ShaderManager::getShader(std::string componentName)
 {
 	Shader* shader = find(componentName, m_shaderMap);
 	return shader;
+}
+
+void ShaderManager::getWindowSize(int* width, int* height)
+{
+	m_curWindow->getWindowSize(width, height);
 }

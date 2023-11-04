@@ -2,7 +2,8 @@
 #include <vector>
 #include <vendor/NixTools/system.h>
 #include "window.h"
-#include "input.h"
+#include "keyboardinput.h"
+#include "mouseinput.h"
 
 class InputManager : public NixTools::System
 {
@@ -13,13 +14,16 @@ private:
 	
 	GLFWwindow* m_mainWindow;
 
-	std::vector<Input*> m_Inputs;
+	std::vector<KeyboardInput*> m_KeyboardInputs;
+	std::vector<MouseInput*> m_MouseInputs;
 public:
 	//Singleton creation
 	static void createInstance();
 	static InputManager* getInstance();
 
+	std::vector<KeyboardInput*> getKeyboardInputs();
+	std::vector<MouseInput*> getMouseInputs();
 
-	std::vector<Input*> getInputs();
-	void addInput(Input* input);
+	void addInput(KeyboardInput* input);
+	void addInput(MouseInput* input);
 };

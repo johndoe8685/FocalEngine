@@ -3,10 +3,20 @@
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	InputManager* tmp = InputManager::getInstance();
-	std::vector<Input*> inputs = tmp->getInputs();
+	std::vector<KeyboardInput*> inputs = tmp->getKeyboardInputs();
 	for (size_t i = 0; i < inputs.size(); i++)
 	{
-		inputs[i]->events(window, key, scancode, action, mods);
+		inputs[i]->keyboardEvents(window, key, scancode, action, mods);
+	}
+}
+
+void mouseCallback(GLFWwindow* window, double xPos, double yPos)
+{
+	InputManager* tmp = InputManager::getInstance();
+	std::vector<MouseInput*> inputs = tmp->getMouseInputs();
+	for (size_t i = 0; i < inputs.size(); i++)
+	{
+		inputs[i]->mouseEvents(window, xPos, yPos);
 	}
 }
 
@@ -15,6 +25,7 @@ InputManager::InputManager()
 {
 	m_mainWindow = Window::getInstance()->getGLFWwindow();
 	glfwSetKeyCallback(m_mainWindow, keyCallback);
+	glfwSetCursorPosCallback(m_mainWindow, mouseCallback);
 }
 
 void InputManager::createInstance()
@@ -42,12 +53,22 @@ InputManager* InputManager::getInstance()
 	}
 }
 
-std::vector<Input*> InputManager::getInputs()
+std::vector<KeyboardInput*> InputManager::getKeyboardInputs()
 {
-	return m_Inputs;
+	return m_KeyboardInputs;
 }
 
-void InputManager::addInput(Input* input)
+std::vector<MouseInput*> InputManager::getMouseInputs()
 {
-	m_Inputs.push_back(input);
+	return m_MouseInputs;
+}
+
+void InputManager::addInput(KeyboardInput* input)
+{
+	m_KeyboardInputs.push_back(input);
+}
+
+void InputManager::addInput(MouseInput* input)
+{
+	m_MouseInputs.push_back(input);
 }
