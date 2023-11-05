@@ -2,7 +2,7 @@
 #include "window.h"
 
 ShaderManager::ShaderManager(Window* window)
-	:System("Default", "ShaderManager"), m_deltaTime(0.0f)
+	:System("Default", "ShaderManager")
 {
 	setCurrentWindow(window);
 }
