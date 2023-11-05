@@ -122,7 +122,6 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClInclude Include="include\assetManager.h" />
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\game\gui.h" />
-    <ClInclude Include="include\global.h" />
     <ClInclude Include="include\inputManager.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\model.h" />

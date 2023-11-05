@@ -2,7 +2,6 @@
 #include <vendor/NixTools/system.h>
 #include <vendor/glm/glm.hpp>
 #include "inputManager.h"
-#include "global.h"
 
 class Camera : public NixTools::System, KeyboardInput, MouseInput
 {

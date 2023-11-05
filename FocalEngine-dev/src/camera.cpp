@@ -67,7 +67,7 @@ void Camera::keyControl()
 	
 	ShaderManager* shaderManager = ShaderManager::getInstance();
 
-	float velocity = 2.5f * GS_DELTATIME;
+	float velocity = 2.5f * shaderManager->getDeltatime();
 
 	if (keys[GLFW_KEY_W])
 	{

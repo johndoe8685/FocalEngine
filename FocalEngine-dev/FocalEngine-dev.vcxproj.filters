@@ -1226,9 +1226,6 @@
     <ClInclude Include="include\mouseinput.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
-    <ClInclude Include="include\global.h">
-      <Filter>Üst Bilgi Dosyaları</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\vendor\glm\detail\func_common.inl">

@@ -82,7 +82,7 @@ Window::~Window()
 	glfwTerminate();
 }
 
-bool Window::renderLoop()
+bool Window::renderLoop(double* deltatime)
 {
 	if (!isStarted) isStarted = true;
 	else glfwSwapBuffers(m_glfwWindow);
@@ -92,7 +92,7 @@ bool Window::renderLoop()
 
 	/* Get Delta Time */
 	m_curFrame = glfwGetTime();
-	GS_DELTATIME = m_curFrame - m_lastFrame;
+	*deltatime = m_curFrame - m_lastFrame;
 	m_lastFrame = m_curFrame;
 	
 	return !glfwWindowShouldClose(m_glfwWindow);
@@ -106,11 +106,6 @@ void Window::setWindowSize(int width, int height)
 void Window::getWindowSize(int* width, int* height)
 {
 	glfwGetWindowSize(m_glfwWindow, width, height);
-}
-
-float Window::getDeltaTime()
-{
-	return GS_DELTATIME;
 }
 
 GLFWwindow* Window::getGLFWwindow()

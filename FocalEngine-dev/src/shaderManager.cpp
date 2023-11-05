@@ -54,6 +54,17 @@ Shader* ShaderManager::getShader(std::string componentName)
 	return shader;
 }
 
+void ShaderManager::update(double* deltatime)
+{
+	m_deltatime = *deltatime;
+}
+
+double ShaderManager::getDeltatime()
+{
+	return m_deltatime;
+}
+
+
 void ShaderManager::getWindowSize(int* width, int* height)
 {
 	m_curWindow->getWindowSize(width, height);

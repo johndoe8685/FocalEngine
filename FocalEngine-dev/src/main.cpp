@@ -15,6 +15,8 @@ InputManager* InputManager::s_instance = nullptr;
 ShaderManager* ShaderManager::s_instance = nullptr;
 AssetManager* AssetManager::s_instance = nullptr;
 
+double G_DELTATIME = 0.0;
+
 int main()
 {
 	/* Initialization of Engine Here */
@@ -54,12 +56,13 @@ int main()
 	constexpr float toRadians = 3.14159265358979323846f / 180.f;
 
 	/* Render Loop */
-	while (mainWindow->renderLoop())
+	while (mainWindow->renderLoop(&G_DELTATIME))
 	{
+		shaderManager->update(&G_DELTATIME);
 		testScene.renderScene();
 
 		//Rotate the dragon
-		speed = 80.0f * toRadians * mainWindow->getDeltaTime();
+		speed = 80.0f * toRadians * shaderManager->getDeltatime();
 		curAngle += speed;
 		if (curAngle >= 360)
 		{

@@ -3,7 +3,6 @@
 #include <vendor/NixTools/system.h>
 #include <vendor/glad/glad.h>
 #include <vendor/GLFW/glfw3.h>
-#include "global.h"
 
 class Window : public NixTools::System
 {
@@ -22,12 +21,10 @@ public:
 	static Window* getInstance();
 	~Window();
 
-	bool renderLoop();
+	bool renderLoop(double* deltatime);
 	
 	void setWindowSize(int width, int height);
 	void getWindowSize(int* width, int* height);
-
-	float getDeltaTime();
 
 	GLFWwindow* getGLFWwindow();
 };

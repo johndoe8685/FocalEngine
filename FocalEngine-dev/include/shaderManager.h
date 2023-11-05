@@ -13,6 +13,7 @@ private:
 	ShaderManager(Window* window);
 	static ShaderManager* s_instance;
 	Window* m_curWindow;
+	double m_deltatime;
 
 	std::unordered_map<std::string, std::shared_ptr<Shader>> m_shaderMap;
 	Shader* find(std::string componentName, std::unordered_map<std::string, std::shared_ptr<Shader>> map);
@@ -25,6 +26,10 @@ public:
 
 	void addShader(std::string componentName, const std::string& fragmentShader, const std::string& vertexShader);
 	Shader* getShader(std::string componentName);
+
+	void update(double* deltatime);
+
+	double getDeltatime();
 
 	void getWindowSize(int* width, int* height);
 };
