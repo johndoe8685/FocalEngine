@@ -68,8 +68,6 @@ void Scene::setMVP(glm::mat4 transformation, Shader* shader)
 
 	if(width != 0 && height != 0) shaderManager->projection = glm::perspective(glm::radians(90.0f), ((float)width / (float)height), 0.1f, 1000.0f);
 
-	shaderManager->view = m_mainCamera.calculateViewMatrix();
-
 	shaderManager->mvp = shaderManager->projection * shaderManager->view * transformation;
 
 	shader->SetUniformMatrix4fv("mvp", shaderManager->mvp);
@@ -93,6 +91,7 @@ void Scene::renderScene()
 	ShaderManager* shaderManager = ShaderManager::getInstance();
 	Shader* mainShader = shaderManager->getShader("MainShader");
 
+	shaderManager->view = m_mainCamera.calculateViewMatrix();
 	if (m_skybox != nullptr) m_skybox->DrawSkybox(shaderManager->view, shaderManager->projection);
 
 	m_mainCamera.update();
