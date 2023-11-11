@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <memory>
 #include <vendor/NixTools/system.h>
+#include <vendor/glm/glm.hpp>
 #include "shader.h"
 
 class Window;
@@ -17,6 +18,10 @@ private:
 
 	std::unordered_map<std::string, std::shared_ptr<Shader>> m_shaderMap;
 	Shader* find(std::string componentName, std::unordered_map<std::string, std::shared_ptr<Shader>> map);
+public:
+	glm::mat4 mvp;
+	glm::mat4 projection;
+	glm::mat4 view;
 public:
 	//Singleton creation
 	static void createInstance(Window* window);

@@ -37,18 +37,14 @@ int main()
 	/* Game Related Code Here */
 	GUI gui("Default");
 
-	assetManager->addModel("testModel", "/res/model/dragon.obj");
+	assetManager->addModel("DragonModel", "/res/model/dragon.obj");
+	assetManager->addModel("FloorModel", "/res/model/floor.obj");
 
 	Scene testScene("Test");
-	testScene.addModel("DragonModel", "testModel", glm::vec3(0.0f, 0.0f, -2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.25f));
-	testScene.addModel("ErrorModel1", "errorModel", glm::vec3(1.0f, 0.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel2", "errorModel", glm::vec3(-1.0f, 0.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel3", "errorModel", glm::vec3(0.0f, 1.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel4", "errorModel", glm::vec3(0.0f, -1.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel5", "errorModel", glm::vec3(0.0f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel6", "errorModel", glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel7", "errorModel", glm::vec3(3.5f, 0.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
-	testScene.addModel("ErrorModel8", "errorModel", glm::vec3(-3.5f, 0.0f, -2.5f), glm::vec3(0.0f), glm::vec3(0.35f));
+	testScene.addSkybox("Blue");
+
+	testScene.addModel("Dragon", "DragonModel", glm::vec3(0.0f, 0.0f, -2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.25f));
+	testScene.addModel("Floor", "FloorModel", glm::vec3(0.0f, -1.0f, -2.5f), glm::vec3(0.0f), glm::vec3(1.0f));
 
 	//Variables
 	float curAngle = 0.0f;
@@ -70,8 +66,6 @@ int main()
 		}
 
 		testScene.setModelRotation("DragonModel", glm::vec3(0.0f, curAngle, 0.0f));
-		testScene.setModelRotation("ErrorModel3", glm::vec3(0.0f, -curAngle, 0.0f));
-		testScene.setModelRotation("ErrorModel4", glm::vec3(0.0f, -curAngle, 0.0f));
 	}
 	glfwTerminate();
 	return 0;

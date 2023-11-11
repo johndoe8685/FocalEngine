@@ -3,7 +3,7 @@
 #include <sstream>
 
 Camera::Camera(std::string componentName, glm::vec3 cameraPosition, glm::vec2 rotation)
-	:System(componentName, "Camera"), m_position(cameraPosition), m_rotation(rotation), front(0.0f, 0.0f, -1.0f), up(0.0f, 1.0f, 0.0f), sensivity(0.5f), Fclicked(false)
+	:System(componentName, "Camera"), m_position(cameraPosition), m_rotation(rotation), front(0.0f, 0.0f, -1.0f), up(0.0f, 1.0f, 0.0f), sensivity(0.2f), Fclicked(false)
 {
 	KeyboardInput* keyboardInput = static_cast<KeyboardInput*>(this);
 	InputManager::getInstance()->addInput(keyboardInput);
@@ -65,28 +65,31 @@ void Camera::keyControl()
 {
 	if (keys[GLFW_KEY_G]) debugger.giveMessage(NixTools::Debugger::Error, "Fuck you");
 	
-	ShaderManager* shaderManager = ShaderManager::getInstance();
-
-	float velocity = 2.5f * shaderManager->getDeltatime();
-
-	if (keys[GLFW_KEY_W])
+	if (Fclicked)
 	{
-		m_position += front * velocity;
-	}
+		ShaderManager* shaderManager = ShaderManager::getInstance();
 
-	if (keys[GLFW_KEY_S])
-	{
-		m_position -= front * velocity;
-	}
+		float velocity = 5.0f * shaderManager->getDeltatime();
 
-	if (keys[GLFW_KEY_A])
-	{
-		m_position -= glm::normalize(glm::cross(front, up)) * velocity;
-	}
+		if (keys[GLFW_KEY_W])
+		{
+			m_position += front * velocity;
+		}
 
-	if (keys[GLFW_KEY_D])
-	{
-		m_position += glm::normalize(glm::cross(front, up)) * velocity;
+		if (keys[GLFW_KEY_S])
+		{
+			m_position -= front * velocity;
+		}
+
+		if (keys[GLFW_KEY_A])
+		{
+			m_position -= glm::normalize(glm::cross(front, up)) * velocity;
+		}
+
+		if (keys[GLFW_KEY_D])
+		{
+			m_position += glm::normalize(glm::cross(front, up)) * velocity;
+		}
 	}
 }
 

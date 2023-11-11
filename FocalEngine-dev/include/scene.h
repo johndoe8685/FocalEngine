@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include "camera.h"
+#include "skybox.h"
 
 class Shader;
 
@@ -22,11 +23,14 @@ private:
 	std::vector<ModelData> m_models;
 	std::unordered_map<std::string, size_t> m_modelIndexMap;
 	Camera m_mainCamera;
+	Skybox* m_skybox;
 public:
 	Scene(std::string componentName);
 
 	void addModel(std::string componentName, std::string modelName);
 	void addModel(std::string componentName, std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
+
+	void addSkybox(std::string filename);
 
 	void setModel(std::string componentName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
 	void setModelPosition(std::string componentName, glm::vec3 position);

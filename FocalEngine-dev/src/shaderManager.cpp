@@ -2,7 +2,7 @@
 #include "window.h"
 
 ShaderManager::ShaderManager(Window* window)
-	:System("Default", "ShaderManager")
+	:System("Default", "ShaderManager"), projection(1.0f)
 {
 	setCurrentWindow(window);
 }

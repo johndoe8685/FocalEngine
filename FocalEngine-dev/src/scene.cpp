@@ -29,6 +29,11 @@ void Scene::addModel(std::string componentName, std::string modelName, glm::vec3
 	m_modelIndexMap[componentName] = m_models.size() - 1;
 }
 
+void Scene::addSkybox(std::string filename)
+{
+	m_skybox = new Skybox(m_componentName, filename);
+}
+
 void Scene::setModel(std::string componentName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
 {
 	m_models[m_modelIndexMap[componentName]].position = position;
@@ -57,19 +62,17 @@ void Scene::setModelScale(std::string componentName, glm::vec3 scale)
 
 void Scene::setMVP(glm::mat4 transformation, Shader* shader)
 {
-	glm::mat4 mvp;
-	glm::mat4 projection(1.0f);
 	ShaderManager* shaderManager = ShaderManager::getInstance();
 	int width, height;
 	shaderManager->getWindowSize(&width, &height);
 
-	if(width != 0 && height != 0) projection = glm::perspective(glm::radians(90.0f), ((float)width / (float)height), 0.1f, 1000.0f);
+	if(width != 0 && height != 0) shaderManager->projection = glm::perspective(glm::radians(90.0f), ((float)width / (float)height), 0.1f, 1000.0f);
 
-	glm::mat4 view = m_mainCamera.calculateViewMatrix();
+	shaderManager->view = m_mainCamera.calculateViewMatrix();
 
-	mvp = projection * view * transformation;
+	shaderManager->mvp = shaderManager->projection * shaderManager->view * transformation;
 
-	shader->SetUniformMatrix4fv("mvp", mvp);
+	shader->SetUniformMatrix4fv("mvp", shaderManager->mvp);
 }
 
 glm::mat4 Scene::setModelTransformation(ModelData data)
@@ -89,6 +92,8 @@ void Scene::renderScene()
 	AssetManager* assetManager = AssetManager::getInstance();
 	ShaderManager* shaderManager = ShaderManager::getInstance();
 	Shader* mainShader = shaderManager->getShader("MainShader");
+
+	if (m_skybox != nullptr) m_skybox->DrawSkybox(shaderManager->view, shaderManager->projection);
 
 	m_mainCamera.update();
 

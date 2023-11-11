@@ -60,6 +60,9 @@
     <ClCompile Include="src\camera.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
+    <ClCompile Include="src\skybox.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\vendor\NixTools\system.h">
@@ -1226,6 +1229,9 @@
     <ClInclude Include="include\mouseinput.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
+    <ClInclude Include="include\skybox.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\vendor\glm\detail\func_common.inl">
@@ -2367,5 +2373,7 @@
     <None Include="include\vendor\assimp\vector3.inl">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </None>
+    <None Include="res\shader\skybox.frag" />
+    <None Include="res\shader\skybox.vert" />
   </ItemGroup>
 </Project>
