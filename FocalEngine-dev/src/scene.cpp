@@ -1,7 +1,4 @@
 #include "scene.h"
-#include <vendor/glm/gtc/matrix_transform.hpp>
-#include "shaderManager.h"
-#include "assetManager.h"
 
 Scene::Scene(std::string componentName)
 	:System(componentName, "Scene"), m_mainCamera("MainCamera", glm::vec3(0.0f), glm::vec2(-90.0f, 0.0f))
@@ -27,6 +24,39 @@ void Scene::addModel(std::string componentName, std::string modelName, glm::vec3
 	data.transformation = setModelTransformation(data);
 	m_models.emplace_back(data);
 	m_modelIndexMap[componentName] = m_models.size() - 1;
+}
+
+void Scene::addAmbientLight(std::string lightName, glm::vec3 color, glm::vec3 position, float intensity)
+{
+	CoreLight* light = new AmbientLight(lightName, color, position, intensity)	;
+	m_lights.emplace_back(light);
+	m_lightIndexMap[lightName] = m_lights.size() - 1;
+}
+
+void Scene::addDirectionalLight(std::string lightName, glm::vec3 color, glm::vec3 position, glm::vec3 direction, float intensity)
+{
+	CoreLight* light = new DirectionalLight(lightName, color, position, direction, intensity);
+	m_lights.emplace_back(light);
+	m_lightIndexMap[lightName] = m_lights.size() - 1;
+}
+
+void Scene::addPointLight(std::string lightName, glm::vec3 color, glm::vec3 position, float intensity)
+{
+	CoreLight* light = new PointLight(lightName, color, position, intensity);
+	m_lights.emplace_back(light);
+	m_lightIndexMap[lightName] = m_lights.size() - 1;
+}
+
+void Scene::useLight(std::string lightName)
+{
+	if (m_lightIndexMap.count(lightName) == 1)
+	{
+		m_lights[m_lightIndexMap[lightName]]->useLight();
+	}
+	else
+	{
+		debugger.giveMessage(NixTools::Debugger::Error, "Light does not exist", lightName);
+	}
 }
 
 void Scene::addSkybox(std::string filename)
@@ -71,6 +101,7 @@ void Scene::setMVP(glm::mat4 transformation, Shader* shader)
 	shaderManager->mvp = shaderManager->projection * shaderManager->view * transformation;
 
 	shader->SetUniformMatrix4fv("mvp", shaderManager->mvp);
+	shader->SetUniformMatrix4fv("model", transformation);
 }
 
 glm::mat4 Scene::setModelTransformation(ModelData data)
@@ -92,6 +123,8 @@ void Scene::renderScene()
 	Shader* mainShader = shaderManager->getShader("MainShader");
 
 	shaderManager->view = m_mainCamera.calculateViewMatrix();
+	glm::vec3 cameraPosition = m_mainCamera.getPosition();
+	mainShader->SetUniform3f("cameraPosition", cameraPosition.x, cameraPosition.y, cameraPosition.z);
 	if (m_skybox != nullptr) m_skybox->DrawSkybox(shaderManager->view, shaderManager->projection);
 
 	m_mainCamera.update();

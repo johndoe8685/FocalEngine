@@ -33,6 +33,8 @@ public:
 	void keyControl();
 	void mouseControl();
 
+	glm::vec3 getPosition() { return m_position; }
+
 	void keyboardEvents(GLFWwindow* window, int key, int scancode, int action, int mods);
 	void mouseEvents(GLFWwindow* window, double xPos, double yPos);
 };

@@ -6,10 +6,10 @@ Model::Model(std::string componentName, std::string path)
 	directory.changePath(path);
 	Assimp::Importer m_importer;
     debugger.giveMessage(NixTools::Debugger::Info, "Loading", path);
-	m_scene = m_importer.ReadFile(directory.getPath(), aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_FlipUVs);
+	m_scene = m_importer.ReadFile(directory.getPath(), aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_FlipUVs | aiProcess_JoinIdenticalVertices);
     if (!m_scene || m_scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !m_scene->mRootNode)
     {
-        debugger.giveMessage(NixTools::Debugger::Error, "Model Loading", m_importer.GetErrorString());
+        debugger.giveMessage(NixTools::Debugger::Error, "Model Loading Error", m_importer.GetErrorString());
     }
     else
     {
@@ -50,9 +50,9 @@ Mesh* Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
         vertex.position = data;
 
         //Get Normal data
-        data.x = mesh->mNormals[i].x;
-        data.y = mesh->mNormals[i].y;
-        data.z = mesh->mNormals[i].z;
+        data.x = -mesh->mNormals[i].x;
+        data.y =  -mesh->mNormals[i].y;
+        data.z = -mesh->mNormals[i].z;
         vertex.normal = data;
 
         //Get Texture Coordinates if any exists

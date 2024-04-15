@@ -45,11 +45,22 @@ int main()
 
 	testScene.addModel("Dragon", "DragonModel", glm::vec3(0.0f, 0.0f, -2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.25f));
 	testScene.addModel("Floor", "FloorModel", glm::vec3(0.0f, -1.0f, -2.5f), glm::vec3(0.0f), glm::vec3(1.0f));
+	
+	//testScene.addAmbientLight("Skylight", glm::vec3(0.529f, 0.808f, 0.922f), glm::vec3(0.0f, 0.0f, 0.0f), 0.2f);
+	//testScene.addAmbientLight("Skylight", glm::vec3(1.0f), glm::vec3(0.0f), 0.2f);
+	//testScene.addDirectionalLight("Sunlight", glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.1f, 0.0f), glm::vec3(2.0f, -1.0f, 2.0f), 0.8f);
+	testScene.addPointLight("TestPoint", glm::vec3(1.0f), glm::vec3(0.0f, 3.0f,	 -2.5f), 1.0f);
+
+	testScene.useLight("Sunlight");
+	testScene.useLight("Skylight");
+	testScene.useLight("TestPoint");
 
 	//Variables
 	float curAngle = 0.0f;
 	float speed = 0.0f;
 	constexpr float toRadians = 3.14159265358979323846f / 180.f;
+
+	Shader* shader = shaderManager->getShader("MainShader");
 
 	/* Render Loop */
 	while (mainWindow->renderLoop(&G_DELTATIME))
