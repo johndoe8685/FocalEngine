@@ -75,6 +75,9 @@
     <ClCompile Include="src\lights\pointLight.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
+    <ClCompile Include="src\physicsManager.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\vendor\NixTools\system.h">
@@ -1256,6 +1259,834 @@
     <ClInclude Include="include\lights\pointLight.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Jolt.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\RegisterTypes.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitterMorton.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitterBinning.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitterFixedLeafSize.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitterLongestAxis.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleSplitter\TriangleSplitterMean.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleGrouper\TriangleGrouperMorton.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleGrouper\TriangleGrouper.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\TriangleGrouper\TriangleGrouperClosestCentroid.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Skeleton\SkeletonPose.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Skeleton\SkeletalAnimation.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Skeleton\Skeleton.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Skeleton\SkeletonMapper.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Renderer\DebugRendererSimple.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Renderer\DebugRendererPlayback.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Renderer\DebugRendererRecorder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Renderer\DebugRenderer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\StateRecorderImpl.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\DeterminismLog.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\EActivation.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\EPhysicsUpdateError.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\IslandBuilder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\LargeIslandSplitter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsLock.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsScene.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsStepListener.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsSystem.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\PhysicsUpdateContext.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\StateRecorder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyVertex.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyContactListener.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyCreationSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyManifold.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyMotionProperties.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodySharedSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\SoftBody\SoftBodyUpdateContext.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Ragdoll\Ragdoll.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\TwoBodyConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\AngleConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\AxisConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\DualAxisConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\GearConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\HingeRotationConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\IndependentAxisConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\PointConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\RackAndPinionConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\RotationEulerConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\RotationQuatConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\SpringPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintPart\SwingTwistConstraintPart.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\CalculateSolverSteps.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConeConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\Constraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ConstraintManager.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\ContactConstraintManager.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\DistanceConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\FixedConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\GearConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\HingeConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\MotorSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\PathConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\PathConstraintPath.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\PathConstraintPathHermite.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\PointConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\PulleyConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\RackAndPinionConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\SixDOFConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\SliderConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\SpringSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Constraints\SwingTwistConstraint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\TransformedShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\AllowedDOFs.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\Body.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyAccess.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyActivationListener.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyCreationSettings.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyFilter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyID.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyInterface.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyLock.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyLockInterface.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyLockMulti.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyManager.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyPair.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\BodyType.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\MassProperties.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\MotionProperties.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\MotionQuality.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Body\MotionType.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Character\Character.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Character\CharacterBase.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Character\CharacterVirtual.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhase.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseBruteForce.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseLayer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseLayerInterfaceMask.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseLayerInterfaceTable.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseQuadTree.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\BroadPhaseQuery.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\ObjectVsBroadPhaseLayerFilterMask.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\ObjectVsBroadPhaseLayerFilterTable.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BroadPhase\QuadTree.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\BoxShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\CapsuleShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\CompoundShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\CompoundShapeVisitors.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\ConvexHullShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\ConvexShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\CylinderShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\DecoratedShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\GetTrianglesContext.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\HeightFieldShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\MeshShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\MutableCompoundShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\OffsetCenterOfMassShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\PolyhedronSubmergedVolumeCalculator.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\RotatedTranslatedShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\ScaledShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\ScaleHelpers.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\Shape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\SphereShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\StaticCompoundShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\SubShapeID.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\SubShapeIDPair.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\TaperedCapsuleShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\Shape\TriangleShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\AABoxCast.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ActiveEdgeMode.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ActiveEdges.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\BackFaceMode.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CastConvexVsTriangles.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CastResult.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CastSphereVsTriangles.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollectFacesMode.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollideConvexVsTriangles.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollidePointResult.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollideShape.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollideSoftBodyVerticesVsTriangles.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollideSphereVsTriangles.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollisionCollector.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollisionCollectorImpl.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollisionDispatch.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\CollisionGroup.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ContactListener.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\EstimateCollisionResponse.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\GroupFilter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\GroupFilterTable.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\InternalEdgeRemovingCollector.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ManifoldBetweenTwoFaces.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\NarrowPhaseQuery.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\NarrowPhaseStats.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ObjectLayer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ObjectLayerPairFilterMask.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ObjectLayerPairFilterTable.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\PhysicsMaterial.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\PhysicsMaterialSimple.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\RayCast.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ShapeCast.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\ShapeFilter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Physics\Collision\SortReverseAndStore.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\TypeDeclarations.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\AABBTree\NodeCodec\NodeCodecQuadTreeHalfFloat.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\AABBTree\TriangleCodec\TriangleCodecIndexed8BitPackSOA4Flags.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\AABBTree\AABBTreeBuilder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\AABBTree\AABBTreeToBuffer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\ARMNeon.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Array.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Atomics.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\ByteBuffer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Color.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Core.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Factory.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\FixedSizeFreeList.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\FPControlWord.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\FPException.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\FPFlushDenormals.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\HashCombine.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\InsertionSort.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\IssueReporting.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\JobSystem.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\JobSystemSingleThreaded.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\JobSystemThreadPool.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\JobSystemWithBarrier.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\LinearCurve.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\LockFreeHashMap.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Memory.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Mutex.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\MutexArray.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\NonCopyable.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Profiler.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\QuickSort.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Reference.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Result.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\RTTI.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\ScopeExit.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\Semaphore.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StaticArray.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\STLAlignedAllocator.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\STLAllocator.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\STLTempAllocator.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StreamIn.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StreamOut.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StreamUtils.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StreamWrapper.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\StringTools.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\TempAllocator.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\TickCounter.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\UnorderedMap.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Core\UnorderedSet.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\AABox.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\AABox4.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\ClipPoly.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\ClosestPoint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\ConvexHullBuilder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\ConvexHullBuilder2D.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\ConvexSupport.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\Ellipse.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\EPAConvexHullBuilder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\EPAPenetrationDepth.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\GJKClosestPoint.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\IndexedTriangle.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\Indexify.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\MortonCode.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\OrientedBox.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\Plane.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayAABox.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayAABox8.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayCapsule.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayCylinder.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RaySphere.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayTriangle.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\RayTriangle8.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\Sphere.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Geometry\Triangle.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\DMat44.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Double3.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\DVec3.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\DynMatrix.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\EigenValueSymmetric.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\FindRoot.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Float2.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Float3.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Float4.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\GaussianElimination.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\HalfFloat.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Mat44.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Math.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\MathTypes.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Matrix.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Quat.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Real.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Swizzle.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Trigonometry.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\UVec4.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\UVec8.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Vec3.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Vec4.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Vec8.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\Math\Vector.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\GetPrimitiveTypeOfType.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStream.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamBinaryIn.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamBinaryOut.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamIn.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamOut.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamTextIn.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamTextOut.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\ObjectStreamTypes.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\SerializableAttribute.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\SerializableAttributeEnum.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\SerializableAttributeTyped.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\Jolt\ObjectStream\SerializableObject.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\vendor\glm\detail\func_common.inl">
@@ -2399,5 +3230,50 @@
     </None>
     <None Include="res\shader\skybox.frag" />
     <None Include="res\shader\skybox.vert" />
+    <None Include="include\vendor\Jolt\Physics\Body\Body.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Physics\Body\MotionProperties.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Core\FixedSizeFreeList.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Core\JobSystem.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Core\LockFreeHashMap.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Core\Profiler.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\DMat44.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\DVec3.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\Mat44.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\Quat.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\UVec4.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\UVec8.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\Vec3.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\Vec4.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\Jolt\Math\Vec8.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -17,6 +17,8 @@ AssetManager* AssetManager::s_instance = nullptr;
 
 double G_DELTATIME = 0.0;
 
+int testJolt();
+
 int main()
 {
 	/* Initialization of Engine Here */
@@ -47,13 +49,13 @@ int main()
 	testScene.addModel("Floor", "FloorModel", glm::vec3(0.0f, -1.0f, -2.5f), glm::vec3(0.0f), glm::vec3(1.0f));
 	
 	//testScene.addAmbientLight("Skylight", glm::vec3(0.529f, 0.808f, 0.922f), glm::vec3(0.0f, 0.0f, 0.0f), 0.2f);
-	//testScene.addAmbientLight("Skylight", glm::vec3(1.0f), glm::vec3(0.0f), 0.2f);
-	//testScene.addDirectionalLight("Sunlight", glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.1f, 0.0f), glm::vec3(2.0f, -1.0f, 2.0f), 0.8f);
-	testScene.addPointLight("TestPoint", glm::vec3(1.0f), glm::vec3(0.0f, 3.0f,	 -2.5f), 1.0f);
+	testScene.addAmbientLight("Skylight", glm::vec3(1.0f), glm::vec3(0.0f), 0.2f);
+	testScene.addDirectionalLight("Sunlight", glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.1f, 0.0f), glm::vec3(2.0f, -1.0f, 2.0f), 0.8f);
+	//testScene.addPointLight("TestPoint", glm::vec3(1.0f), glm::vec3(0.0f, 3.0f,	 -2.5f), 1.0f);
 
 	testScene.useLight("Sunlight");
 	testScene.useLight("Skylight");
-	testScene.useLight("TestPoint");
+	//testScene.useLight("TestPoint");
 
 	//Variables
 	float curAngle = 0.0f;
@@ -78,6 +80,9 @@ int main()
 
 		testScene.setModelRotation("DragonModel", glm::vec3(0.0f, curAngle, 0.0f));
 	}
+
+	testJolt();
+
 	glfwTerminate();
 	return 0;
 }
