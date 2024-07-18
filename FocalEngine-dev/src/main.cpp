@@ -7,6 +7,8 @@
 #include "model.h"
 #include "scene.h"
 #include "camera.h"
+#include "core/coreGUI.h"
+#include "core/console.h"
 #include "game/gui.h"
 
 /* Singletons */
@@ -14,6 +16,7 @@ Window* Window::s_instance = nullptr;
 InputManager* InputManager::s_instance = nullptr;
 ShaderManager* ShaderManager::s_instance = nullptr;
 AssetManager* AssetManager::s_instance = nullptr;
+CoreGUI* CoreGUI::s_instance = nullptr;
 
 double G_DELTATIME = 0.0;
 
@@ -35,6 +38,9 @@ int main()
 
 	shaderManager->addShader("MainShader", "/res/shader/basic.frag", "/res/shader/basic.vert");
 	assetManager->addModel("errorModel", "/res/model/error.obj");
+
+	CoreGUI::createInstance(mainWindow, "Default");
+	CoreGUI* coreGUI = CoreGUI::getInstance();
 
 	/* Game Related Code Here */
 	GUI gui("Default");
@@ -64,6 +70,8 @@ int main()
 
 	Shader* shader = shaderManager->getShader("MainShader");
 
+	DebugConsole console(mainWindow);
+
 	/* Render Loop */
 	while (mainWindow->renderLoop(&G_DELTATIME))
 	{
@@ -78,10 +86,10 @@ int main()
 			curAngle -= 360;
 		}
 
+		coreGUI->run();
 		testScene.setModelRotation("DragonModel", glm::vec3(0.0f, curAngle, 0.0f));
 	}
 
-	testJolt();
 
 	glfwTerminate();
 	return 0;

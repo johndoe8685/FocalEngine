@@ -103,6 +103,8 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClCompile Include="include\vendor\glm\detail\glm.cpp" />
     <ClCompile Include="src\assetManager.cpp" />
     <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\core\console.cpp" />
+    <ClCompile Include="src\core\coreGUI.cpp" />
     <ClCompile Include="src\game\gui.cpp" />
     <ClCompile Include="src\inputManager.cpp" />
     <ClCompile Include="src\lights\ambientLight.cpp" />
@@ -119,6 +121,13 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\vendor\glad.c" />
+    <ClCompile Include="src\vendor\imgui.cpp" />
+    <ClCompile Include="src\vendor\imgui_demo.cpp" />
+    <ClCompile Include="src\vendor\imgui_draw.cpp" />
+    <ClCompile Include="src\vendor\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\vendor\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\vendor\imgui_tables.cpp" />
+    <ClCompile Include="src\vendor\imgui_widgets.cpp" />
     <ClCompile Include="src\vendor\stb_image.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
@@ -130,8 +139,11 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
   <ItemGroup>
     <ClInclude Include="include\assetManager.h" />
     <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\core\console.h" />
+    <ClInclude Include="include\core\coreGUI.h" />
     <ClInclude Include="include\game\gui.h" />
     <ClInclude Include="include\inputManager.h" />
+    <ClInclude Include="include\interface\CoreGUIListener.h" />
     <ClInclude Include="include\lights\ambientLight.h" />
     <ClInclude Include="include\lights\corelight.h" />
     <ClInclude Include="include\lights\directionalLight.h" />
@@ -512,6 +524,15 @@ xcopy  "$(ProjectDir)res" "$(SolutionDir)out\$(Configuration)\res" /s /e /I /y</
     <ClInclude Include="include\vendor\glm\vec3.hpp" />
     <ClInclude Include="include\vendor\glm\vec4.hpp" />
     <ClInclude Include="include\vendor\glm\vector_relational.hpp" />
+    <ClInclude Include="include\vendor\imgui\imconfig.h" />
+    <ClInclude Include="include\vendor\imgui\imgui.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_truetype.h" />
     <ClInclude Include="include\vendor\Jolt\AABBTree\AABBTreeBuilder.h" />
     <ClInclude Include="include\vendor\Jolt\AABBTree\AABBTreeToBuffer.h" />
     <ClInclude Include="include\vendor\Jolt\AABBTree\NodeCodec\NodeCodecQuadTreeHalfFloat.h" />

@@ -3,13 +3,16 @@
 #include <sstream>
 
 Camera::Camera(std::string componentName, glm::vec3 cameraPosition, glm::vec2 rotation)
-	:System(componentName, "Camera"), m_position(cameraPosition), m_rotation(rotation), front(0.0f, 0.0f, -1.0f), up(0.0f, 1.0f, 0.0f), sensivity(0.2f), Fclicked(false)
+	:System(componentName, "Camera"), m_position(cameraPosition), m_rotation(rotation), front(0.0f, 0.0f, -1.0f), up(0.0f, 1.0f, 0.0f), sensivity(0.2f), m_cameraVelocity(5.0f), m_Fclicked(false), m_EscClicked(false)
 {
 	KeyboardInput* keyboardInput = static_cast<KeyboardInput*>(this);
 	InputManager::getInstance()->addInput(keyboardInput);
 
 	MouseInput* mouseInput = static_cast<MouseInput*>(this);
 	InputManager::getInstance()->addInput(mouseInput);
+
+	CoreGUIListener* coreGUIListener = static_cast<CoreGUIListener*>(this);
+	CoreGUI::getInstance()->addCamera(coreGUIListener);
 }
 
 void Camera::update()
@@ -35,18 +38,28 @@ void Camera::keyboardEvents(GLFWwindow* window, int key, int scancode, int actio
 {
 	if (key == GLFW_KEY_F && action == GLFW_PRESS)
 	{
-		if(!Fclicked) 
+		if (!m_EscClicked)
 		{
-			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-			Fclicked = true;
-		}
-		else 
-		{
-			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-			Fclicked = false;
+			if (!m_Fclicked)
+			{
+				m_Fclicked = true;
+			}
+			else
+			{
+				m_Fclicked = false;
+			}
 		}
 	}
+
+	if (key == GLFW_KEY_LEFT_SHIFT && action == GLFW_PRESS)
+	{
+		m_cameraVelocity = 25.0f;
+	}
 	
+	if (key == GLFW_KEY_LEFT_SHIFT && action == GLFW_RELEASE)
+	{
+		m_cameraVelocity = 5.0f;
+	}
 
 	if (key >= 0 && key < 1024)
 	{
@@ -65,11 +78,11 @@ void Camera::keyControl()
 {
 	if (keys[GLFW_KEY_G]) debugger.giveMessage(NixTools::Debugger::Error, "Fuck you");
 	
-	if (Fclicked)
+	if (m_Fclicked)
 	{
 		ShaderManager* shaderManager = ShaderManager::getInstance();
 
-		float velocity = 5.0f * shaderManager->getDeltatime();
+		float velocity = m_cameraVelocity * shaderManager->getDeltatime();
 
 		if (keys[GLFW_KEY_W])
 		{
@@ -104,7 +117,7 @@ void Camera::mouseEvents(GLFWwindow* window, double xPos, double yPos)
 
 void Camera::mouseControl()
 {
-	if (Fclicked)
+	if (m_Fclicked)
 	{
 		xChange = xChange * sensivity;
 		yChange = yChange * sensivity;
@@ -127,4 +140,8 @@ void Camera::mouseControl()
 	}
 }
 
-
+void Camera::onEscClicked(bool* EscClicked)
+{
+	m_EscClicked = *EscClicked;
+	if (m_EscClicked == true) m_Fclicked = false;
+}

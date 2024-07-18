@@ -8,7 +8,7 @@
 class InputManager : public NixTools::System
 {
 private:
-	//Singleton Constructor and  pointer
+	//Singleton Constructor and pointer
 	InputManager();
 	static InputManager* s_instance;
 	

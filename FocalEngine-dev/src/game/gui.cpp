@@ -9,5 +9,4 @@ GUI::GUI(std::string componentName)
 
 void GUI::keyboardEvents(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (key == GLFW_KEY_ESCAPE) glfwSetWindowShouldClose(window, true);
 }
