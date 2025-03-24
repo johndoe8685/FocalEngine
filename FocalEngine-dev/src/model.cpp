@@ -5,11 +5,11 @@ Model::Model(std::string componentName, std::string path)
 {
 	directory.changePath(path);
 	Assimp::Importer m_importer;
-    debugger.giveMessage(NixTools::Debugger::Info, "Loading", path);
+    debugger.giveMessage(NixTools::Info, "Loading", path);
 	m_scene = m_importer.ReadFile(directory.getPath(), aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_FlipUVs | aiProcess_JoinIdenticalVertices);
     if (!m_scene || m_scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !m_scene->mRootNode)
     {
-        debugger.giveMessage(NixTools::Debugger::Error, "Model Loading Error", m_importer.GetErrorString());
+        debugger.giveMessage(NixTools::Error, "Model Loading Error", m_importer.GetErrorString());
     }
     else
     {
@@ -100,13 +100,13 @@ void Model::ProcessTexture(const aiScene* scene)
                 std::string filename = std::string(path.data).substr(idx + 1);
 
                 std::string texPath = std::string("/res/texture/model/") + directory.getFileName() + "/" + filename;
-                debugger.giveMessage(NixTools::Debugger::Info, "Loading", texPath);
+                debugger.giveMessage(NixTools::Info, "Loading", texPath);
 
                 m_textureList[i] = new Texture(texPath);
 
                 if (!m_textureList[i]->LoadTexture())
                 {
-                    debugger.giveMessage(NixTools::Debugger::Error, "Failed to load a texture", texPath);
+                    debugger.giveMessage(NixTools::Error, "Failed to load a texture", texPath);
                     delete m_textureList[i];
                     m_textureList[i] = nullptr;
                 }

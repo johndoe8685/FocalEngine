@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Kaynak Dosyalar</Filter>
-    </ClCompile>
     <ClCompile Include="src\vendor\glad.c">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
@@ -103,6 +100,27 @@
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
     <ClCompile Include="src\core\coreGUI.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui_console.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framebuffer.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\NixTools\debugger.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tempMain.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sceneManager.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2150,6 +2168,57 @@
     <ClInclude Include="include\interface\CoreGUIListener.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
+    <ClInclude Include="include\vendor\imgui_console\imgui_console.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\api.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\argument_parser.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\arguments.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\autocomplete.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\command.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\csys.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\exceptions.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\history.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\item.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\script.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\string.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vendor\csys\system.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\framebuffer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\engine.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sceneManager.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+    <ClInclude Include="include\renderer.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\vendor\glm\detail\func_common.inl">
@@ -3338,5 +3407,25 @@
     <None Include="include\vendor\Jolt\Math\Vec8.inl">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </None>
+    <None Include="include\vendor\csys\system.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\csys\autocomplete.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\csys\history.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\csys\item.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="include\vendor\csys\script.inl">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </None>
+    <None Include="res\shader\grid.vert" />
+    <None Include="res\shader\grid.frag" />
+    <None Include="res\shader\test.frag" />
+    <None Include="res\shader\test.vert" />
+    <None Include="res\shader\line.vert" />
   </ItemGroup>
 </Project>

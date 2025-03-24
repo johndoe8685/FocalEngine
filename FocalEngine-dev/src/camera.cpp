@@ -76,8 +76,6 @@ void Camera::keyboardEvents(GLFWwindow* window, int key, int scancode, int actio
 
 void Camera::keyControl()
 {
-	if (keys[GLFW_KEY_G]) debugger.giveMessage(NixTools::Debugger::Error, "Fuck you");
-	
 	if (m_Fclicked)
 	{
 		ShaderManager* shaderManager = ShaderManager::getInstance();

@@ -13,7 +13,7 @@ void AssetManager::createInstance()
 	}
 	else
 	{
-		s_instance->debugger.giveMessage(NixTools::Debugger::Error, "AssetManager was already created!!");
+		s_instance->debugger.giveMessage(NixTools::Error, "AssetManager was already created!!");
 	}
 }
 
@@ -26,7 +26,7 @@ AssetManager* AssetManager::getInstance()
 	else
 	{
 		NixTools::Debugger tmp("AssetManager");
-		tmp.giveMessage(NixTools::Debugger::Error, "AssetManager isnt created! Create AssetManager first.");
+		tmp.giveMessage(NixTools::Error, "AssetManager isnt created! Create AssetManager first.");
 	}
 }
 

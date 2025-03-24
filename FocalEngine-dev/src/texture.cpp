@@ -12,7 +12,7 @@ bool Texture::LoadTexture()
     m_LocalBuffer = stbi_load(directory.getPath().c_str(), &m_Width, &m_Height, &m_BPP, 4);
     if (!m_LocalBuffer)
     {
-        debugger.giveMessage(NixTools::Debugger::Error, "Failed to Find", m_filepath);
+        debugger.giveMessage(NixTools::Error, "Failed to Find", m_filepath);
         return false;
     }
     glGenTextures(1, &m_textureID);

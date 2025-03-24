@@ -12,6 +12,14 @@
 
 namespace NixTools
 {
+	enum DebugLevel
+	{
+		Info,
+		Warning,
+		Error,
+		Unknown
+	};
+
 	class Debugger
 	{
 	private:
@@ -22,18 +30,13 @@ namespace NixTools
 		float m_previousValueFloat;
 		unsigned int m_previousValueUInt;
 	public:
-		enum DebugLevel
-		{
-			Info,
-			Warning,
-			Error,
-			Unknown
-		};
 		NIXTOOLS_API Debugger(std::string componentName, std::string className);
 		NIXTOOLS_API Debugger(std::string className);
 
 		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message);
 		NIXTOOLS_API void giveMessage(DebugLevel level, std::string title, std::string message);
+		template<typename T>
+		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, T value);
 		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, unsigned int value);
 		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, int value);
 		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, float value);

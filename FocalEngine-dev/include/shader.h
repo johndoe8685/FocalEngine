@@ -13,16 +13,16 @@ class Shader : public NixTools::System
 {
 private:
     unsigned int m_ModuleID;
-    std::string m_FragmentFilePath;
-	std::string m_VertexFilePath;
     std::unordered_map<std::string, GLint> m_UniformLocationMap;
     
     unsigned int CreateShader(const std::string& vertexSource, const std::string& fragmentSource);
     unsigned int CompileShader(unsigned int type, const std::string& source);
     
     int GetUniformLocation(const std::string& name);
-    std::string GetShaderSource(const std::string& filepath);
 public:
+    std::string m_FragmentFilePath;
+    std::string m_VertexFilePath;
+    std::string GetShaderSource(const std::string& filepath);
     Shader(std::string componentName, const std::string& fragmentShader, const std::string& vertexShader);
     ~Shader() { glDeleteProgram(m_ModuleID); }
 

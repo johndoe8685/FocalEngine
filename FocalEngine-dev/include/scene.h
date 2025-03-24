@@ -25,6 +25,7 @@ class Scene : public NixTools::System
 		glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
 		glm::mat4 transformation;
+		Shader* modelShader = nullptr;
 	};
 private:
 	std::vector<ModelData> m_models;
@@ -39,12 +40,14 @@ public:
 	Scene(std::string componentName);
 
 	void addModel(std::string componentName, std::string modelName);
-	void addModel(std::string componentName, std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
+	void addModel(std::string componentName, std::string modelName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale, Shader* modelShader);
 	
 	void setModel(std::string componentName, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
 	void setModelPosition(std::string componentName, glm::vec3 position);
 	void setModelRotation(std::string componentName, glm::vec3 rotation);
 	void setModelScale(std::string componentName, glm::vec3 scale);
+
+	glm::vec3 getCameraPosition();
 	
 	void addAmbientLight(std::string lightName, glm::vec3 color, glm::vec3 position, float intensity);
 	void addDirectionalLight(std::string lightName, glm::vec3 color, glm::vec3 position, glm::vec3 direction, float intensity);

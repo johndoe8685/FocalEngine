@@ -6,6 +6,7 @@
 #include "vendor/imgui/imgui_impl_opengl3.h"
 #include "inputManager.h"
 #include "interface/CoreGUIListener.h"
+#include "core/console.h"
 
 class CoreGUI : public NixTools::System, KeyboardInput
 {
@@ -17,12 +18,16 @@ private:
 	Window* m_window;
 
 	bool EscClicked, tildeClicked, Fclicked, F11clicked;
+	bool shouldShowOverlay;
 
 	int prev_xPos, prev_yPos;
 	int prev_width, prev_height;
 
 	bool shouldRenderExit, shouldExit;
+	bool consoleClicked, editorClicked;
 	std::list<CoreGUIListener*> m_cameraList;
+
+	DebugConsole* m_console;
 public:
 	//Singleton creation
 	static void createInstance(Window* window, std::string componentName);
@@ -38,5 +43,7 @@ public:
 	void run();
 
 	void renderMenu();
+	void renderFPS();
+	void renderTextEditor();
 	void renderExit();
 };

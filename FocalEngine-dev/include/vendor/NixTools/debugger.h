@@ -1,17 +1,16 @@
 #pragma once
 #include <iostream>
 
-//If NIXTOOLS_EXPORTS preprocessor defined. Then export the functions. Else import.
-
-#ifdef NIXTOOLS_EXPORTS
-#define NIXTOOLS_API __declspec(dllexport)
-#else
-#define NIXTOOLS_API __declspec(dllimport)
-#endif
-
-
 namespace NixTools
 {
+	enum DebugLevel
+	{
+		Info,
+		Warning,
+		Error,
+		Unknown
+	};
+
 	class Debugger
 	{
 	private:
@@ -22,20 +21,13 @@ namespace NixTools
 		float m_previousValueFloat;
 		unsigned int m_previousValueUInt;
 	public:
-		enum DebugLevel
-		{
-			Info,
-			Warning,
-			Error,
-			Unknown
-		};
-		NIXTOOLS_API Debugger(std::string componentName, std::string className);
-		NIXTOOLS_API Debugger(std::string className);
+		Debugger(std::string componentName, std::string className);
+		Debugger(std::string className);
 
-		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message);
-		NIXTOOLS_API void giveMessage(DebugLevel level, std::string title, std::string message);
-		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, unsigned int value);
-		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, int value);
-		NIXTOOLS_API void giveMessage(DebugLevel level, std::string message, float value);
+		void giveMessage(DebugLevel level, std::string message);
+		void giveMessage(DebugLevel level, std::string title, std::string message);
+		void giveMessage(DebugLevel level, std::string message, unsigned int value);
+		void giveMessage(DebugLevel level, std::string message, int value);
+		void giveMessage(DebugLevel level, std::string message, float value);
 	};
 }

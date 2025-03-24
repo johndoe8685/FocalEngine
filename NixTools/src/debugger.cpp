@@ -113,6 +113,28 @@ namespace NixTools
         }
     }
 
+    template<typename T>
+    void Debugger::giveMessage(DebugLevel level, std::string message, T value)
+    {
+        switch (level)
+        {
+        case Info:
+            std::cout << "[INFO]  " << "[" << m_componentName << "::" << m_className << "] " << "[" << message << "> " << value << std::endl;
+            break;
+        case Warning:
+            std::cout << "[WARN]  " << "[" << m_componentName << "::" << m_className << "] " << "[" << message << "> " << value << std::endl;
+            break;
+        case Error:
+            std::cout << "[ERROR] " << "[" << m_componentName << "::" << m_className << "] " << "[" << message << "> " << value << std::endl;
+            break;
+        case Unknown:
+            std::cout << "[UNKWN] " << "[" << m_componentName << "::" << m_className << "] " << "[" << message << "> " << value << std::endl;
+            break;
+        default:
+            break;
+        }
+    }
+
     void Debugger::giveMessage(DebugLevel level, std::string message, unsigned int value)
     {
         if (value != m_previousValueUInt)

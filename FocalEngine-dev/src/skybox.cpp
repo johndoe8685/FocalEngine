@@ -1,4 +1,4 @@
-#include "skybox.h"
+ï»¿#include "skybox.h"
 
 Skybox::Skybox(std::string componentName, std::string fileName)
 	:System(componentName, "Skybox")
@@ -6,14 +6,15 @@ Skybox::Skybox(std::string componentName, std::string fileName)
 	shadermanager = ShaderManager::getInstance();
 	stbi_set_flip_vertically_on_load(0);
 
-	//Burada eklenecek olan skyboxlar /res/texture/skybox/ klasöründe, verilen fileName'e sahip olup 6 resmin de ismini right left up gibi devam etmesini standartlaþtýrýyor
+	//Burada eklenecek olan skyboxlar /res/texture/skybox/ klasÃ¶rÃ¼nde, verilen fileName'e sahip olup 6 resmin de ismini right left up gibi devam etmesini standartlaÃ¾tÃ½rÃ½yor
 	std::string faceLocations[] = { "right", "left", "top", "bottom", "front" ,"back" };
 	for (size_t i = 0; i < 6; i++)
 	{
 		faceLocations[i] = std::string("/res/texture/skybox/") + fileName + "/" + faceLocations[i];
-		debugger.giveMessage(NixTools::Debugger::Info, "Loading", faceLocations[i]);
+		debugger.giveMessage(NixTools::Info, "Loading", faceLocations[i]);
 	}
 
+	//TODO: Add this shader into ShaderManager so it can be manipulated
 	m_skyShader = new Shader("Skybox", "/res/shader/skybox.frag", "/res/shader/skybox.vert");
 
 	glGenTextures(1, &m_textureID);
@@ -33,7 +34,7 @@ Skybox::Skybox(std::string componentName, std::string fileName)
 			texData = stbi_load(directory.getPath().c_str(), &width, &height, &bitDepth, 0);
 			if (!texData)
 			{
-				debugger.giveMessage(NixTools::Debugger::Error, "Failed to Find", faceLocations[i]);
+				debugger.giveMessage(NixTools::Error, "Failed to Find", faceLocations[i]);
 				m_skyMesh = nullptr;
 				return;
 			}
@@ -114,12 +115,12 @@ void Skybox::DrawSkybox(glm::mat4 view, glm::mat4 projection)
 {
 	if (m_skyMesh != nullptr && m_skyShader != nullptr)
 	{
-		//viewMatrix'i matris 4x4'ten matris 3x3'e dönüþtür.
-		//Bu dönüþüm viewMatrix'in scale ve position'ununu deðiþtirmiyor ama rotation'nunu kaldýrýyor
+		//viewMatrix'i matris 4x4'ten matris 3x3'e dÃ¶nÃ¼ÅŸtÃ¼r.
+		//Bu dÃ¶nÃ¼Ã¾Ã¼m viewMatrix'in scale ve position'ununu deÃ°iÃ¾tirmiyor ama rotation'nunu kaldÃ½rÃ½yor
 		glm::mat4 viewMatrix = view;
 		viewMatrix = glm::mat4(glm::mat3(viewMatrix));
 
-		//Burada depth testi kapat çünkü skybox'u en son framebuffer'a yazacaðýz
+		//Burada depth testi kapat Ã§Ã¼nkÃ¼ skybox'u en son framebuffer'a yazacaÃ°Ã½z
 		glDepthMask(GL_FALSE);
 
 		m_skyShader->SetUniformMatrix4fv("projection", projection);
@@ -132,7 +133,7 @@ void Skybox::DrawSkybox(glm::mat4 view, glm::mat4 projection)
 		m_skyMesh->RenderMesh();
 		m_skyShader->Unbind();
 
-		//Geri depth testi aç
+		//Geri depth testi aÃ§
 		glDepthMask(GL_TRUE);
 	}
 }

@@ -5,7 +5,7 @@ void errorCallback(int code, const char* description)
 	std::string value = description;
 
 	NixTools::Debugger dbg("GLFW");
-	dbg.giveMessage(NixTools::Debugger::Error, description, code);
+	dbg.giveMessage(NixTools::Error, description, code);
 }
 
 void frameBufferSizeCallback(GLFWwindow* window, int width, int height)
@@ -27,7 +27,7 @@ Window::Window(std::string componentName, int width, int height, bool isFullscre
 
 	if (!m_glfwWindow)
 	{
-		debugger.giveMessage(NixTools::Debugger::Error, "GLFW Window Creation Failed!");
+		debugger.giveMessage(NixTools::Error, "GLFW Window Creation Failed!");
 		isFailed = true;
 		glfwTerminate();
 	}
@@ -60,7 +60,7 @@ void Window::createInstance(std::string componentName, int width, int height, bo
 	}
 	else
 	{
-		s_instance->debugger.giveMessage(NixTools::Debugger::Error, "Window was already created!!");
+		s_instance->debugger.giveMessage(NixTools::Error, "Window was already created!!");
 	}
 }
 
@@ -73,7 +73,7 @@ Window* Window::getInstance()
 	else
 	{
 		NixTools::Debugger tmp("Window");
-		tmp.giveMessage(NixTools::Debugger::Error, "Window isnt created! Create window first.");
+		tmp.giveMessage(NixTools::Error, "Window isnt created! Create window first.");
 	}
 }
 
@@ -82,7 +82,7 @@ Window::~Window()
 	glfwTerminate();
 }
 
-bool Window::renderLoop(double* deltatime)
+bool Window::renderLoop(float* deltaTime, double* elapsedTime)
 {
 	if (!isStarted) isStarted = true;
 	else glfwSwapBuffers(m_glfwWindow);
@@ -92,8 +92,10 @@ bool Window::renderLoop(double* deltatime)
 
 	/* Get Delta Time */
 	m_curFrame = glfwGetTime();
-	*deltatime = m_curFrame - m_lastFrame;
+	*deltaTime = m_curFrame - m_lastFrame;
 	m_lastFrame = m_curFrame;
+
+	*elapsedTime += *deltaTime;
 	
 	return !glfwWindowShouldClose(m_glfwWindow);
 }
@@ -106,6 +108,11 @@ void Window::setWindowSize(int width, int height)
 void Window::getWindowSize(int* width, int* height)
 {
 	glfwGetWindowSize(m_glfwWindow, width, height);
+}
+
+void Window::exit()
+{
+	glfwSetWindowShouldClose(m_glfwWindow, true);
 }
 
 GLFWwindow* Window::getGLFWwindow()

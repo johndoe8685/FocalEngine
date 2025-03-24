@@ -36,7 +36,7 @@ void InputManager::createInstance()
 	}
 	else
 	{
-		s_instance->debugger.giveMessage(NixTools::Debugger::Error, "InputManager was already created!!");
+		s_instance->debugger.giveMessage(NixTools::Error, "InputManager was already created!!");
 	}
 }
 
@@ -49,7 +49,7 @@ InputManager* InputManager::getInstance()
 	else
 	{
 		NixTools::Debugger tmp("InputManager");
-		tmp.giveMessage(NixTools::Debugger::Error, "InputManager isnt created! Create InputManager first.");
+		tmp.giveMessage(NixTools::Error, "InputManager isnt created! Create InputManager first.");
 	}
 }
 

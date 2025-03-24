@@ -35,7 +35,7 @@ unsigned int Shader::CreateShader(const std::string& vertexSource, const std::st
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if(!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        debugger.giveMessage(NixTools::Debugger::Error, "CreateShader::Program compliation failed", infoLog);
+        debugger.giveMessage(NixTools::Error, "CreateShader::Program compliation failed", infoLog);
     }
     glUseProgram(shaderProgram);
     glDeleteShader(vertexShader);
@@ -56,7 +56,7 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
     if(!success)
     {
         glGetShaderInfoLog(shader, 512, NULL, infoLog);
-        debugger.giveMessage(NixTools::Debugger::Error, "CompileShader::Shader compliation failed", infoLog);
+        debugger.giveMessage(NixTools::Error, "CompileShader::Shader compliation failed", infoLog);
         glDeleteShader(shader);
         return 0;
     }
@@ -73,7 +73,7 @@ int Shader::GetUniformLocation(const std::string& name)
     {
         int location = glGetUniformLocation(m_ModuleID, name.c_str());
         if (location == -1)
-            debugger.giveMessage(NixTools::Debugger::Warning, "GetUniformLocation::Uniform Doesnt exist", name);
+            debugger.giveMessage(NixTools::Warning, "GetUniformLocation::Uniform Doesnt exist", name);
         return location;
     }
 }

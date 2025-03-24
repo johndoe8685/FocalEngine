@@ -15,7 +15,7 @@ void ShaderManager::createInstance(Window* window)
 	}
 	else
 	{
-		s_instance->debugger.giveMessage(NixTools::Debugger::Error, "ShaderManager was already created!!");
+		s_instance->debugger.giveMessage(NixTools::Error, "ShaderManager was already created!!");
 	}
 }
 
@@ -28,7 +28,7 @@ ShaderManager* ShaderManager::getInstance()
 	else
 	{
 		NixTools::Debugger tmp("ShaderManager");
-		tmp.giveMessage(NixTools::Debugger::Error, "ShaderManager isnt created! Create InputManager first.");
+		tmp.giveMessage(NixTools::Error, "ShaderManager isnt created! Create InputManager first.");
 	}
 }
 
@@ -54,7 +54,7 @@ Shader* ShaderManager::getShader(std::string componentName)
 	return shader;
 }
 
-void ShaderManager::update(double* deltatime)
+void ShaderManager::update(float* deltatime)
 {
 	m_deltatime = *deltatime;
 }

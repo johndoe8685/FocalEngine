@@ -21,10 +21,13 @@ public:
 	static Window* getInstance();
 	~Window();
 
-	bool renderLoop(double* deltatime);
+
+	bool renderLoop(float* deltaTime, double* elapsedTime);
 	
 	void setWindowSize(int width, int height);
 	void getWindowSize(int* width, int* height);
+
+	void exit();
 
 	GLFWwindow* getGLFWwindow();
 };

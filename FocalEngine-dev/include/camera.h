@@ -13,6 +13,7 @@ private:
 		Perspective,
 		Orthographic
 	};
+
 	ProjectionMode m_mode;
 
 	glm::vec3 m_position;
